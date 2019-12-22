@@ -1,0 +1,9 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,env
+spring:
+  application:
+    name: application-name
