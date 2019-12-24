@@ -11,9 +11,6 @@
 
     <artifactId>spring-cloud-config-demo</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>spring-cloud-config</module>
-    </modules>
 
     <dependencies>
 

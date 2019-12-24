@@ -4,7 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-cloud-config-demo</module>
+        <module>spring-cloud-config</module>
+        <module>spring-cloud-context</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

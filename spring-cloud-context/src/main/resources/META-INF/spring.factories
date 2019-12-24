@@ -1,2 +1,2 @@
 org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-top.felixfly.cloud.config.CustomPropertySourceLocator
+top.felixfly.springcloud.context.CustomPropertySourceLocator

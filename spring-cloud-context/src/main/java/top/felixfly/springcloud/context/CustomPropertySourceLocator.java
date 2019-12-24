@@ -1,4 +1,4 @@
-package top.felixfly.cloud.config;
+package top.felixfly.springcloud.context;
 
 import org.springframework.cloud.bootstrap.config.PropertySourceLocator;
 import org.springframework.context.annotation.Configuration;

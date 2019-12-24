@@ -1,9 +1,8 @@
-package top.felixfly.cloud.config;
+package top.felixfly.springcloud.context;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 配置中心服务端引导类
