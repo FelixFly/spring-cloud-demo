@@ -6,3 +6,5 @@ spring:
       server:
         git:
           uri: file:///E:/GitHub/spring-cloud-demo
+  application:
+    name: configserver
