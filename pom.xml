@@ -36,4 +36,11 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>huaweicloud</id>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+    </repositories>
+
 </project>
