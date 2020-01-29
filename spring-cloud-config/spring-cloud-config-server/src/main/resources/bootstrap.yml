@@ -1,3 +1,8 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,env
 server:
   port: 8090
 spring:
@@ -5,6 +10,4 @@ spring:
     config:
       server:
         git:
-          uri: file:///E:/GitHub/spring-cloud-demo
-  application:
-    name: configserver
+          uri: file:///E:/GitHub/properties
