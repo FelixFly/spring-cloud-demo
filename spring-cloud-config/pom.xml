@@ -9,16 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-config-demo</artifactId>
+    <artifactId>spring-cloud-config</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>spring-cloud-config-server</module>
+        <module>spring-cloud-config-client</module>
+    </modules>
+
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
