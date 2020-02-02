@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * {@link DiscoveryClient} 端点
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/2/1
  */
 @RestController

@@ -7,11 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * 服务发现客户端程序
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/2/1
  */
 @SpringBootApplication
-@EnableDiscoveryClient
 public class DiscoveryClientApplication {
 
     public static void main(String[] args) {
