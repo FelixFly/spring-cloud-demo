@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: discovery-client
+  cloud:
+    zookeeper: # 关闭 zookeeper 服务发现
+      enabled: false # 关闭zookeeper
+      discovery:
+        enabled: false
+    consul: # 关闭 consul 服务发现
+      discovery:
+        register: false
+        enabled: false
+      enabled: false
+    nacos: # 关闭 nacos 服务发现
+      discovery:
+        enabled: false
+# 暴露所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  client:
+    enabled: false
+--- # eureka profile
+spring:
+  profiles: eureka
+server:
+  port: 8090
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka/
+
+--- # zookeeper profile
+spring:
+  profiles: zookeeper
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+      enabled: true
+      discovery:
+        enabled: true
+server:
+  port: 0
+--- # consul profile
+spring:
+  profiles: consul
+  cloud:
+    consul:
+      enabled: true
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true
+        enabled: true
+server:
+  port: 8191
+--- # nacos profile
+spring:
+  profiles: nacos
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: http://127.0.0.1:8848/
+server:
+  port: 0
