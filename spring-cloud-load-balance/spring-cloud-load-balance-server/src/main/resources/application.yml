@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: load-balance-server
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+server:
+  port: 0
