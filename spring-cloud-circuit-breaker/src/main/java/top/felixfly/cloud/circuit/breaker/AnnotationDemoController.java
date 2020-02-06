@@ -1,5 +1,6 @@
 package top.felixfly.cloud.circuit.breaker;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * 注解演示服务端点
@@ -19,6 +24,27 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/annotation")
 public class AnnotationDemoController {
+
+
+    @HystrixCollapser(batchMethod = "batchMethod", collapserProperties = {
+            @HystrixProperty(name = "timerDelayInMilliseconds", value = "50")
+    })
+    @GetMapping("/collapser/{message}")
+    public Future<String> collapser(@PathVariable String message) {
+        await();
+        return null;
+    }
+
+
+    @HystrixCommand
+    public List<String> batchMethod(List<String> messages) {
+        await();
+        return messages.stream().map(message ->"Thread:" + message).collect(toList());
+    }
+
+    public List<String> batchFallBack(List<String> messages) {
+        return messages.stream().map(message ->"Fallback:" + message).collect(toList());
+    }
 
     @HystrixCommand(fallbackMethod = "fallBack", commandProperties = {
             @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD"),

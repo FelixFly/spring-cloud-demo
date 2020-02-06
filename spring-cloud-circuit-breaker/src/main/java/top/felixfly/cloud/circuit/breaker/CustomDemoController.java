@@ -24,6 +24,7 @@ public class CustomDemoController {
     @GetMapping("/thread/{message}")
     public String thread(@PathVariable String message) {
         await();
+        System.out.println("执行Thread");
         return "Thread:" + message;
     }
 
@@ -31,6 +32,7 @@ public class CustomDemoController {
     @GetMapping("/semaphore/{message}")
     public String hello(@PathVariable String message) {
         await();
+        System.out.println("执行Semaphore");
         return "Semaphore:" + message;
     }
 
