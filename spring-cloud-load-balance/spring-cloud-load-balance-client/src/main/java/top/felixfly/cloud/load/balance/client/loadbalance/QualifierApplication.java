@@ -1,5 +1,6 @@
 package top.felixfly.cloud.load.balance.client.loadbalance;
 
+import com.netflix.loadbalancer.ILoadBalancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
