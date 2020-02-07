@@ -9,6 +9,7 @@
         <module>spring-cloud-service-discovery</module>
         <module>spring-cloud-load-balance</module>
         <module>spring-cloud-circuit-breaker</module>
+        <module>spring-cloud-feign</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
