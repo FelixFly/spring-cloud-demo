@@ -3,7 +3,6 @@ package top.felixfly.cloud.feign.client.annotation;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpMethod;
@@ -22,7 +21,7 @@ import java.util.Objects;
 /**
  * Rest 客户端调用
  *
- * @author xcl <xcl@winning.com.cn>
+ * @author FelixFly <chenglinxu@yeah.net>
  * @date 2020/2/7
  */
 public class RestFeignClientInvocationHandler implements InvocationHandler {
@@ -80,9 +79,8 @@ public class RestFeignClientInvocationHandler implements InvocationHandler {
         RequestMethod[] requestMethods = requestMapping.method();
         // 默认取第一个
         HttpMethod httpMethod = HttpMethod.resolve(requestMethods[0].name());
-        ResponseEntity<String> exchange = restTemplate.exchange(url, httpMethod, null,
-                new ParameterizedTypeReference<String>() {
-                });
+        ResponseEntity<?> exchange = restTemplate.exchange(url, httpMethod, null,
+                method.getReturnType());
         return exchange.getBody();
     }
 }
